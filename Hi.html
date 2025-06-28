@@ -1,0 +1,81 @@
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2025 by Priyanshu24697 (http://jsbin.com/pisowog/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Priyanshu's Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f2ff;
+      text-align: center;
+      padding: 50px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 30px;
+    }
+    video {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hello! Welcome to Priyanshu's World 🌟</h1>
+  <p>Enter your name and Instagram username:</p>
+  
+  <input type="text" id="username" placeholder="Your Name" required><br>
+  <input type="text" id="insta" placeholder="Instagram ID" required><br>
+  <button onclick="checkGender()">Submit</button>
+
+  <div id="result"></div>
+
+  <script>
+    function checkGender() {
+      const name = document.getElementById("username").value.trim().toLowerCase();
+      const insta = document.getElementById("insta").value.trim();
+
+      if (!name || !insta) {
+        alert("Please enter both name and Instagram ID.");
+        return;
+      }
+
+      const femaleNames = ['ananya', 'priya', 'riya', 'sakshi', 'neha', 'isha', 'sneha', 'shruti'];
+      const isFemale = femaleNames.some(fName => name.includes(fName));
+
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = "";
+
+      if (isFemale) {
+        resultDiv.innerHTML = `
+          <h2>Hello ${name}, welcome!</h2>
+          <p>Follow Priyanshu on Instagram:</p>
+          <a href="https://www.instagram.com/_g_a_l_e_c_t_i_c_2.0?igsh=MWk2NzN3Mmsza3R3cw==" target="_blank">
+            @_g_a_l_e_c_t_i_c_2.0
+          </a>
+        `;
+      } else {
+        resultDiv.innerHTML = `
+          <h2>Hey ${name}, enjoy this meme instead! 😂</h2>
+          <video controls>
+            <source src="meme_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>
